@@ -41,12 +41,8 @@ def mean():
     data = list(csv.reader(file, delimiter=','))
     height = list(float(row[1]) for row in data[1:] if row)
     weight = list(float(row[2]) for row in data[1:] if row)
-    sum_height = sum(height)
-    len_height = len(height)
-    sum_weight = sum(weight)
-    len_weight = len(weight)
-    mean_height_cm = (sum_height/len_height)*2.506
-    mean_weight_kg = (sum_weight/len_weight)/2.205
+    mean_height_cm = (sum(height)/len(height))*2.506
+    mean_weight_kg = (sum(weight)/len(weight))/2.205
     file.close()
     return render_template("mean.html", mhc=mean_height_cm, mwk=mean_weight_kg)
 
