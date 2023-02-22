@@ -18,4 +18,5 @@ VALUES
       (1, 'rock'),
       (2, 'rap'),
       (3, 'pop'),
-      (4, 'phonk');
+      (4, 'phonk')
+      ;

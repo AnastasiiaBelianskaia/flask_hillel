@@ -18,9 +18,14 @@ def tracks_genre(genre=None):
     db = get_db()
     if genre is None:
         tracks = db.execute('SELECT title FROM tracks').fetchall()
+        count = db.execute('SELECT COUNT(tracks.id) FROM tracks').fetchone()
     else:
-        tracks = db.execute(f'SELECT tracks.title, genre.title FROM tracks INNER JOIN genre ON tracks.genre_id=genre.id WHERE genre.title=?', (genre, )).fetchall()
-    count = len(tracks)
+        tracks = db.execute(f'''SELECT tracks.title, genre.title 
+                            FROM tracks INNER JOIN genre ON tracks.genre_id=genre.id 
+                            WHERE genre.title=?''', (genre, )).fetchall()
+        count = db.execute(f'''SELECT COUNT(tracks.id)
+                       FROM tracks INNER JOIN genre ON tracks.genre_id=genre.id 
+                       WHERE genre.title=?''', (genre, )).fetchone()
     return render_template('tracks_db_html/tracks_genre.html', titles=tracks, count_of_tracks=count, genre=genre)
 
 
