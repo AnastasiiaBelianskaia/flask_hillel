@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Tracks{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>Count of tracks in {{genre}} genre: {{count_of_tracks}}</p>
+
+{% for title in titles %}
+<p>{{title[0]}}</p>
+{% endfor %}
+
+<a href="{{ url_for('my_app.main_page')}}">Main page</a>
+{% endblock %}

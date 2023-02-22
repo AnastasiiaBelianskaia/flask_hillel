@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Generate users{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<ol>
+{% for name in list_users %}
+      <li>
+          {{name}}
+      </li>
+{% endfor %}
+</ol>
+
+<a href="{{ url_for('my_app.main_page')}}">Main page</a>
+{% endblock %}

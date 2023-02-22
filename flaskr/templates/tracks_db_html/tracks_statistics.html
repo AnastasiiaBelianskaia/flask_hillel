@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Tracks{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>The average length of tracks: </p>
+
+{% for aver in average %}
+<p>{{aver}} sec</p>
+{% endfor %}
+
+<p>The sum of tracks length: </p>
+
+{% for s in sum_of_sec %}
+<p>{{s}} sec</p>
+{% endfor %}
+
+<a href="{{ url_for('my_app.main_page')}}">Main page</a>
+{% endblock %}
+

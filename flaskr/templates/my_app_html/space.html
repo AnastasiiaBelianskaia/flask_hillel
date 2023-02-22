@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Space{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>The number of astronauts is {{number}}.</p>
+
+<ol>
+{% for astro in list_astro %}
+      <li>
+          {{astro}}
+      </li>
+{% endfor %}
+</ol>
+
+<a href="{{ url_for('my_app.main_page')}}">Main page</a>
+{% endblock %}
+
