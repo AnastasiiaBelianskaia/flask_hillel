@@ -5,17 +5,14 @@
 {% endblock %}
 
 {% block content %}
-<p>The average length of tracks: </p>
-
-{% for aver in average %}
-<p>{{aver}} sec</p>
+<p>
+{% for val in value %}
+    <p>The average length of tracks:</p>
+    {{ val[0] }} sec<br>
+    <p>The sum of tracks length:</p>
+    {{ val[1] }} sec
 {% endfor %}
-
-<p>The sum of tracks length: </p>
-
-{% for s in sum_of_sec %}
-<p>{{s}} sec</p>
-{% endfor %}
+</p>
 
 <a href="{{ url_for('my_app.main_page')}}">Main page</a>
 {% endblock %}

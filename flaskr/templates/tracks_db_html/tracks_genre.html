@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block content %}
+{% if genre %}
 <p>Count of tracks in {{genre}} genre: {{count_of_tracks}}</p>
+{%else%}
+<p>Count of tracks: {{count_of_tracks}}</p>
+{% endif %}
 
 {% for title in titles %}
 <p>{{title[0]}}</p>
