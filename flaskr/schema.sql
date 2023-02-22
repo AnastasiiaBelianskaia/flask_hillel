@@ -4,7 +4,7 @@ CREATE TABLE tracks(
     artist VARCHAR(100),
     length INTEGER,
     genre_id INTEGER NOT NULL,
-    FOREIGN KEY (title) REFERENCES genre(id)
+    FOREIGN KEY (genre_id) REFERENCES genre(id)
 );
 
 CREATE TABLE genre(
